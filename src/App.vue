@@ -11,19 +11,27 @@
       <router-link to="past-orders" class="top-bar-link">
         <span>Past Orders</span>
       </router-link>
+      <button @click="toggleSidebar" class="top-bar-cart-link">
+        <i class="icofont-cart-alt icofont-1x"></i>
+        <span>Cart ({{ totalQuantity }})</span>
+      </button>
     </nav>
-    <router-link @click="toggleSidebar" class="top-bar-cart-link">
-      <i class="icofont-cart-alt icofont-1x"></i>
-      <span>Cart ({{ totalQuantity }})</span>
-    </router-link>
   </header>
-  <router-view/>
+  <router-view />
 </template>
 
 <script>
 export default {
   name: "App",
-  components: {
+  data() {
+    return {
+      totalQuantity: 10,
+    };
+  },
+  methods: {
+    toggleSidebar() {
+      console.log("toggling sidebar");
+    },
   },
 };
 </script>
